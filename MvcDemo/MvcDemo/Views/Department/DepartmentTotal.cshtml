@@ -1,0 +1,25 @@
+﻿@model IEnumerable<MvcDemo.Models.DepartmentTotal>
+
+@{
+    ViewBag.Title = "DepartmentTotal";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DepartmentTotal</h2>
+<div style="font-family:Arial">
+    <table class="table table-responsive table-hover table-striped table-bordered">
+        <thead><tr><td><b>Department Name</b></td><td><b>Total Count</b></td></tr></thead>
+        <tbody>
+            @foreach (var dept in Model)
+            {
+                <tr><td>@dept.Name</td><td>@dept.Total</td></tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+    
+        
+
+
+

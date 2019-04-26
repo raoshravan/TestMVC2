@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SampleModelStoreContainer" CdmEntityContainer="SampleEntities">
+    <EntitySetMapping Name="tblDepartments">
+      <EntityTypeMapping TypeName="SampleModel.tblDepartment">
+        <MappingFragment StoreEntitySet="tblDepartment">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblEmployees">
+      <EntityTypeMapping TypeName="SampleModel.tblEmployee">
+        <MappingFragment StoreEntitySet="tblEmployee">
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="salary" ColumnName="salary" />
+          <ScalarProperty Name="PersonalWebsite" ColumnName="PersonalWebsite" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="AllDepartment" FunctionName="SampleModel.Store.AllDepartment">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SampleModel.AllDepartment_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AllEmployees" FunctionName="SampleModel.Store.AllEmployees">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SampleModel.AllEmployees_Result">
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="City" ColumnName="City" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AllEmployeeswithDp" FunctionName="SampleModel.Store.AllEmployeeswithDp">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SampleModel.AllEmployeeswithDp_Result">
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="PersonalWebsite" ColumnName="PersonalWebsite" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DeleteData" FunctionName="SampleModel.Store.DeleteData" />
+    <FunctionImportMapping FunctionImportName="InsertData" FunctionName="SampleModel.Store.InsertData" />
+    <FunctionImportMapping FunctionImportName="InsertDepartment" FunctionName="SampleModel.Store.InsertDepartment" />
+    <FunctionImportMapping FunctionImportName="updateEmployee" FunctionName="SampleModel.Store.updateEmployee" />
+  </EntityContainerMapping>
+</Mapping>

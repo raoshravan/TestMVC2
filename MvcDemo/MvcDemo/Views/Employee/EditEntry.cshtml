@@ -1,0 +1,36 @@
+﻿@model MvcDemo.DataDb.AllEmployeeswithDp_Result
+
+@{
+    ViewBag.Title = "EditEntry";
+    ViewBag.Departmentlist = ViewBag.Departmentlist;   
+}
+
+<h2>Edit Employee</h2>
+@using (Html.BeginForm("EditEntry", "Employee"))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <div class="row">
+            <div class="editor-label col-sm-12 col-md-6 col-lg-3">@Html.LabelFor(model => model.EmployeeId)</div>
+            <div class="editor-field col-sm-12 col-md-6 col-lg-3">@Html.DisplayFor(Model => Model.EmployeeId, new { @class = "form-control" })</div><br><br>   @*TextBoxFor kudvenkat part 19 to make employee Id readonly*@
+            <div class="editor-field">@Html.HiddenFor(Model => Model.EmployeeId, new { @class = "form-control" })</div><br><br> @*part 19 kudvenkat*@
+
+            <div class="editor-label col-sm-12 col-md-6 col-lg-3">@Html.LabelFor(model => model.Name)</div>
+            <div class="editor-field col-sm-12 col-md-6 col-lg-3">@Html.TextBoxFor(Model => Model.Name, new { @class = "form-control" })</div><br><br>
+
+            <div class="editor-label col-sm-12 col-md-6 col-lg-3">@Html.LabelFor(model => model.Gender)</div>
+           @* <div class="editor-field col-sm-12 col-md-6 col-lg-3">@Html.TextBoxFor(Model => Model.Gender, new { @class = "form-control" })</div><br><br>*@
+            <div class="editor-field col-sm-12 col-md-6 col-lg-3">@Html.DropDownList("Gender", new List<SelectListItem> { new SelectListItem { Text = "Male", Value = "Male" }, new SelectListItem { Text = "Female", Value = "Female" } }, "Select Gender", new { @class = "form-control" }) @Html.ValidationMessageFor(Model=>Model.Gender)</div><br><br> @*from kudvenkat part 28  @Html.ValidationMessageFor(Model=>Model.Gender) this line basically adds that entry from database agar male h to male check karke dega *@ 
+
+            <div class="editor-label col-sm-12 col-md-6 col-lg-3">@Html.LabelFor(model => model.City)</div>
+            <div class="editor-field col-sm-12 col-md-6 col-lg-3">@Html.TextBoxFor(Model => Model.City, new { @class = "form-control" })</div><br><br>
+
+            <div class="editor-label col-sm-12 col-md-6 col-lg-3">@Html.LabelFor(model => model.DepartmentId)</div>
+            <div class="editor-field col-sm-12 col-md-6 col-lg-3">@Html.DropDownListFor(Model => Model.DepartmentId, ViewBag.Departmentlist as SelectList, "Select Department", new { @class = "form-control" })</div><br><br>  @*from kudvenkat part 34*@
+            
+            @*<div class="editor-field col-sm-12 col-md-6 col-lg-3">@Html.TextBoxFor(Model => Model.DepartmentId, new { @class = "form-control" })</div><br><br>*@
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </fieldset>
+}
+ 

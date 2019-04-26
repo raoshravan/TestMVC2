@@ -1,0 +1,23 @@
+﻿@model IEnumerable<MvcDemo.DataDb.AllEmployeeswithDp_Result>
+@{
+    
+    ViewBag.Title = "Delete";
+}
+<head>
+    <title>Delete Entry</title>
+</head>
+<h2>Delete</h2>
+<h2>All Employee Data</h2>
+<div>
+    <table id="example" class="table table-responsive table-hover table-striped table-bordered">
+        <thead><tr><td><b>Employee ID</b></td><td><b>Name</b></td><td><b>City</b></td><td><b>Gender</b></td><td><b>Department Id</b></td><td class="nosort"><b>Edit Action</b></td><td class="nosort"><b>Delete Action</b></td></tr></thead>
+        <tbody>
+            @foreach (var emp in Model)
+            {
+                <tr><td id="EmpName">@emp.EmployeeId</td><td>@emp.Name</td><td>@emp.City</td><td>@emp.Gender</td><td>@emp.DepartmentId</td><td style="font-family:Arial;">@Html.ActionLink("Edit", "EditEntry", "Employee", new { id = emp.EmployeeId }, new { @class = "fas fa-edit" })</td><td onclick="return confirm('Are you sure you want to delete entry with Employee Id=@emp.EmployeeId')">@Html.ActionLink("Delete", "DeleteEntry", "Employee", new { id = emp.EmployeeId }, new { @class = "fas fa-trash-alt" })</td></tr> @*fun1()  new { @onclick=return confirm("Are you sure you want to delete entry with employee Id =@)"}*@
+            }
+        </tbody>
+    </table>
+@Html.ActionLink("Back to List", "ShowAll")
+</div>
+

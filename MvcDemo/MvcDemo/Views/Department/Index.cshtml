@@ -1,0 +1,29 @@
+﻿@model IEnumerable<MvcDemo.DataDb.AllDepartment_Result>
+
+@{
+    ViewBag.Title = "Department List";
+    Layout = "~/Views/Shared/_Layout.cshtml";    
+}
+<div style="font-family:Arial">
+    <h2>Department List</h2>
+    <ul>
+    @foreach (var dept in Model)
+    {
+        <li>
+            @Html.ActionLink(dept.Name, "Index", "Employee", new { deptId=dept.Id},null)    
+        </li>
+    }
+        </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

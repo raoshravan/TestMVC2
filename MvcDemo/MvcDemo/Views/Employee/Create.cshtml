@@ -1,0 +1,53 @@
+﻿@model MvcDemo.DataDb.AllEmployeeswithDp_Result
+@{
+    ViewBag.Title = "Create Employee";
+    
+}
+<h2>Create Employee</h2>
+
+@using (Html.BeginForm("InsertData", "Employee")) //after clicking on submit it will call Insertdata action of Employee controller
+{
+
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <div class="row">
+
+            <div class="editor-label col-sm-12 col-md-6 col-lg-3">@Html.LabelFor(model => model.Name)</div>
+            <div class="editor-field col-sm-12 col-md-6 col-lg-3">@Html.TextBoxFor(Model => Model.Name, new { @class = "form-control" })</div><br><br>
+
+            <div class="editor-label col-sm-12 col-md-6 col-lg-3">@Html.LabelFor(model => model.Gender)</div>
+            <div class="editor-field col-sm-12 col-md-6 col-lg-3">@Html.DropDownList("Gender", new List<SelectListItem> { new SelectListItem { Text = "Male", Value = "Male" }, new SelectListItem { Text = "Female", Value = "Female" } }, "Select Gender", new { @class = "form-control" })</div><br><br>             @*from kudvenkat part 28*@
+
+            <div class="editor-label col-sm-12 col-md-6 col-lg-3">@Html.LabelFor(model => model.DepartmentId)</div>
+            @*<div class="editor-field col-sm-12 col-md-6 col-lg-3">@Html.DropDownList("Departments", ViewBag.Deptlist as SelectList, "Select Department", new { @class = "form-control", @name = "   DepartmentId" })</div><br><br> @*from kudvenkat part 34*@
+            <div class="editor-field col-sm-12 col-md-6 col-lg-3">@Html.DropDownListFor(Model => Model.DepartmentId, ViewBag.Deptlist as SelectList, "Select Department", new { @class = "form-control" })</div><br><br>  @*from kudvenkat part 34*@
+
+
+            <div class="editor-label col-sm-12 col-md-6 col-lg-3">@Html.LabelFor(model => model.City)</div>
+            <div class="editor-field col-sm-12 col-md-6 col-lg-3">@Html.TextBoxFor(Model => Model.City, new { @class = "form-control" })</div><br><br>
+
+            <div class="editor-label col-sm-12 col-md-6 col-lg-3">@Html.LabelFor(model => model.EmailId)</div>
+            <div class="editor-field col-sm-12 col-md-6 col-lg-3">@Html.TextBoxFor(Model => Model.EmailId, new { @class = "form-control" })</div><br><br>
+
+            <div class="editor-label col-sm-12 col-md-6 col-lg-3">@Html.LabelFor(model => model.Salary)</div>
+            <div class="editor-field col-sm-12 col-md-6 col-lg-3">@Html.TextBoxFor(Model => Model.Salary, new { @class = "form-control" })</div><br><br>
+
+            <div class="editor-label col-sm-12 col-md-6 col-lg-3">@Html.LabelFor(model => model.PersonalWebsite)</div>
+            <div class="editor-field col-sm-12 col-md-6 col-lg-3">@Html.TextBoxFor(Model => Model.PersonalWebsite, new { @class = "form-control" })</div><br><br>
+
+
+
+
+
+
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </fieldset>
+}
+
+
+
+
+
+
+

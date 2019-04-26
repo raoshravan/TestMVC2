@@ -1,0 +1,28 @@
+﻿@model IEnumerable<MvcDemo.DataDb.AllEmployeeswithDp_Result>
+@{
+	ViewBag.Title = "DeleteMultiple";
+}
+<head>
+	<title>Delete Multiple Entry</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
+</head>
+<body>
+@using (Html.BeginForm("DeleteMultiple", "Employee")) //after clicking on submit it will call Insertdata action of Employee controller
+{
+<h2>Delete</h2>
+<h2>All Employee Data</h2>
+<div>
+	<table id="example" class="table table-responsive table-hover table-striped table-bordered">
+		<thead><tr><th class="nosort"><b class="nosort">Delete <input type="checkbox" id="checkAll" class="nosort" /></b></th><th><b>Employee ID</b></th><th><b>Name</b></th><th><b>City</b></th><th><b>Gender</b></th><th><b>Department Id</b></th></tr></thead>
+		<tbody>
+			@foreach (var emp in Model)
+			{
+				<tr><td><input type="checkbox" name="EmployeesToDelete" id="EmployeesToDelete" value="@emp.EmployeeId" /></td><td id="EmpName">@emp.EmployeeId</td><td>@emp.Name</td><td>@emp.City</td><td>@emp.Gender</td><td>@emp.DepartmentId</td></tr>
+			}
+		</tbody>
+	</table>
+	<input type="submit" class="btn btn-primary" value="Delete Selected Employees" /> <br />
+	@Html.ActionLink("Back to List", "ShowAll")
+</div>
+}
+</body>
